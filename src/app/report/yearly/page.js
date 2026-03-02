@@ -73,7 +73,8 @@ export default function YearlyReportPage() {
     const totalBalance = totalIncome - totalExpense;
 
     const years = [];
-    for (let y = 2024; y <= now.getFullYear() + 1; y++) years.push(y);
+    const currentYear = new Date().getFullYear();
+    for (let y = 2024; y <= currentYear + 1; y++) years.push(y);
 
     return (
         <div>
