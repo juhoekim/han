@@ -223,7 +223,7 @@ export default function TransactionsPage() {
                             <select
                                 name="memberId"
                                 className="form-select"
-                                value={form.memberId}
+                                value={form.memberId || ''}
                                 onChange={handleMemberSelect}
                             >
                                 <option value="">선택 안함</option>

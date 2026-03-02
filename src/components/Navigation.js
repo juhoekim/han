@@ -18,7 +18,7 @@ export default function Navigation() {
         <nav className="nav">
             <div className="nav-inner">
                 <Link href="/" className="nav-logo">
-                    <span>⛪</span> 한순례권사 교회 재정관리
+                    <span>📒</span> 한순례권사 총무활동
                 </Link>
                 <ul className="nav-links">
                     {links.map(link => (
