@@ -7,11 +7,17 @@ export default function YearlyReportPage() {
     const [settings, setSettings] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const now = new Date();
-    const [year, setYear] = useState(now.getFullYear());
+    const [year, setYear] = useState(null);
 
     useEffect(() => {
-        loadYearlyReport();
+        const now = new Date();
+        setYear(now.getFullYear());
+    }, []);
+
+    useEffect(() => {
+        if (year) {
+            loadYearlyReport();
+        }
     }, [year]);
 
     async function loadYearlyReport() {
@@ -97,7 +103,7 @@ export default function YearlyReportPage() {
                 </button>
             </div>
 
-            {loading ? (
+            {loading || !year ? (
                 <div className="loading">불러오는 중...</div>
             ) : (
                 <>

@@ -11,12 +11,19 @@ export default function ReportPage() {
     const [carryInput, setCarryInput] = useState('');
     const [toast, setToast] = useState('');
 
-    const now = new Date();
-    const [year, setYear] = useState(now.getFullYear());
-    const [month, setMonth] = useState(now.getMonth() + 1);
+    const [year, setYear] = useState(null);
+    const [month, setMonth] = useState(null);
 
     useEffect(() => {
-        loadReport();
+        const now = new Date();
+        setYear(now.getFullYear());
+        setMonth(now.getMonth() + 1);
+    }, []);
+
+    useEffect(() => {
+        if (year && month) {
+            loadReport();
+        }
     }, [year, month]);
 
     async function loadReport() {
@@ -122,7 +129,7 @@ export default function ReportPage() {
                 </button>
             </div>
 
-            {loading ? (
+            {loading || !year || !month ? (
                 <div className="loading">불러오는 중...</div>
             ) : (
                 <>
