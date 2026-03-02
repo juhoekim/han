@@ -193,7 +193,7 @@ export default function TransactionsPage() {
                     {editingId ? '✏️ 거래 수정' : (activeTab === 'income' ? '📥 수입 등록' : '📤 지출 등록')}
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-row">
+                    <div className="form-row-3">
                         <div className="form-group">
                             <label className="form-label">날짜</label>
                             <input
@@ -218,9 +218,6 @@ export default function TransactionsPage() {
                                 ))}
                             </select>
                         </div>
-                    </div>
-
-                    <div className="form-row">
                         <div className="form-group">
                             <label className="form-label">멤버 (선택)</label>
                             <select
@@ -235,6 +232,9 @@ export default function TransactionsPage() {
                                 ))}
                             </select>
                         </div>
+                    </div>
+
+                    <div className="form-row-3">
                         <div className="form-group">
                             <label className="form-label">금액</label>
                             <input
@@ -246,18 +246,17 @@ export default function TransactionsPage() {
                                 onChange={handleChange}
                             />
                         </div>
-                    </div>
-
-                    <div className="form-group">
-                        <label className="form-label">내용</label>
-                        <input
-                            type="text"
-                            name="description"
-                            className="form-input"
-                            placeholder="내용을 입력하세요"
-                            value={form.description}
-                            onChange={handleChange}
-                        />
+                        <div className="form-group" style={{ gridColumn: 'span 2' }}>
+                            <label className="form-label">내용</label>
+                            <input
+                                type="text"
+                                name="description"
+                                className="form-input"
+                                placeholder="내용을 입력하세요"
+                                value={form.description}
+                                onChange={handleChange}
+                            />
+                        </div>
                     </div>
 
                     <div className="btn-group">
